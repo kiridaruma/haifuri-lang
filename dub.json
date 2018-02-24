@@ -1,0 +1,10 @@
+{
+	"name": "haifuri-lang",
+	"authors": [
+		"kiridaruma"
+	],
+	"targetType": "executable",
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2018, kiridaruma",
+	"license": "GPL-3.0"
+}

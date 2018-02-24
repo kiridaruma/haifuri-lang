@@ -1,0 +1,9 @@
+.dub
+docs.json
+__dummy.html
+docs/
+haifuri-lang*
+*.exe
+*.o
+*.obj
+*.lst
