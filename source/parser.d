@@ -1,4 +1,4 @@
-import order;
+import order, exception;
 import
     std.array,
     std.conv;
@@ -74,8 +74,8 @@ class Parser{
             }
         }
 
-        if(queue.length != 0) throw new Exception("構文エラーです");
-        if(nestStack.length != 0) throw new Exception("ネストがおかしいです");
+        if(queue.length != 0) throw new SyntaxErrorException("艦長！命令は正しくお願いします！");
+        if(nestStack.length != 0) throw new SyntaxErrorException("そんな！武蔵との交信が途絶えた！？");
 
         return cast(immutable(Order[]))orders;
     }

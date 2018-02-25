@@ -1,4 +1,4 @@
-import engine;
+import engine, exception;
 import std.stdio, std.conv;
 
 interface Order{
@@ -31,7 +31,7 @@ class Right : Order{
 class Left : Order{
     public immutable Engine opCall(Engine engine) {
         // ポインタ位置が一番左なら、これ以上左に進めないのでエラー
-        if(engine.memory.length == 0) throw new Exception("これ以上とりかじは取れないよ(泣)");
+        if(engine.ptr == 0) throw new RuntimeErrorException("これ以上とりかじは取れないよ(泣)");
         engine.ptr -= 1;
         return engine;
     }
