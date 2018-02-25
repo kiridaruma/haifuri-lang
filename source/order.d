@@ -52,7 +52,7 @@ class GetChar : Order{
 class If0 : Order{
 
     private uint jumpPtr;
-    this(uint jumpDest){
+    public void setJumpDest(uint jumpDest){
         jumpPtr = jumpDest;
     }
 
@@ -67,7 +67,7 @@ class If0 : Order{
 class IfNot0 : Order{
 
     private uint jumpPtr;
-    this(uint jumpDest){
+    public void setJumpDest(uint jumpDest){
         jumpPtr = jumpDest;
     }
 
