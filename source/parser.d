@@ -1,9 +1,7 @@
 import order;
 import
     std.array,
-    std.conv,
-    std.stdio;
-
+    std.conv;
 
 class Parser{
     
@@ -12,7 +10,7 @@ class Parser{
         this.source = source;
     }
 
-    public Order[] parse(){
+    public immutable(Order[]) parse(){
         string queue = "";
         uint[] nestStack;
         Order[] orders = [];
@@ -79,6 +77,6 @@ class Parser{
         if(queue.length != 0) throw new Exception("構文エラーです");
         if(nestStack.length != 0) throw new Exception("ネストがおかしいです");
 
-        return orders;
+        return cast(immutable(Order[]))orders;
     }
 }

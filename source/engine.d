@@ -9,10 +9,10 @@ class Engine{
     public uint ptr = 0;
     public ubyte[] memory;
     public uint counter = 0;
-    public Order[] orders;
+    public immutable Order[] orders;
 
-    this(string source){
-        this.orders = (new Parser(source)).parse();
+    this(immutable Order[] orders){
+        this.orders = orders;
         this.memory.length = 16; // 初期メモリは16バイトで、そこから倍に増えていく
     }
 

@@ -1,4 +1,4 @@
-import engine;
+import engine, parser;
 import std.stdio;
 
 void main(string[] args){
@@ -12,6 +12,7 @@ void main(string[] args){
         source ~= line;
     }
 
-    auto engine = new Engine(source);
+    immutable orders = (new Parser(source)).parse();
+    auto engine = new Engine(orders);
     engine.run();
 }
