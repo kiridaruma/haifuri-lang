@@ -21,6 +21,8 @@ class Minus : Order{
 
 class Right : Order{
     public Engine opCall(Engine engine){
+        // メモリサイズをチェックして、限界なら2倍に伸ばす
+        if(engine.memory.length - 1 == engine.ptr) engine.memory.length *= 2;
         engine.ptr += 1;
         return engine;
     }
@@ -28,6 +30,8 @@ class Right : Order{
 
 class Left : Order{
     public Engine opCall(Engine engine){
+        // ポインタ位置が一番左なら、これ以上左に進めないのでエラー
+        if(engine.memory.length == 0) throw new Exception("これ以上とりかじは取れないよ(泣)");
         engine.ptr -= 1;
         return engine;
     }

@@ -13,7 +13,7 @@ class Engine{
 
     this(string source){
         this.orders = (new Parser(source)).parse();
-        this.memory.length = 3000;
+        this.memory.length = 16; // 初期メモリは16バイトで、そこから倍に増えていく
     }
 
     public void run(Engine engine = Engine.init){
